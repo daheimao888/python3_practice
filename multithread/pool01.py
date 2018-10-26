@@ -11,4 +11,6 @@ def copy_work():
 if __name__ == '__main__':
     pool = multiprocessing.Pool(3)
     for i in range(10):
-        pool.apply(copy_work)
+        pool.apply_async(copy_work())
+    pool.close()
+    pool.join()
